@@ -8,7 +8,7 @@ namespace AS.AppointmentService.Core.Configurations
     {
         public void Configure(EntityTypeBuilder<MotivoCita> builder)
         {
-            builder.ToTable("motivo_cita", "agendasalud");
+            builder.ToTable("motivo_cita");
 
             builder.HasKey(m => m.Id);
 

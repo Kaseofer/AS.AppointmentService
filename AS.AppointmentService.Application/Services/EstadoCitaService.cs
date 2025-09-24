@@ -21,7 +21,7 @@ namespace AS.AppointmentService.Application.Services
         {
             try
             {
-                var estados = _estadoCitaRepository.GetAllAsync();
+                var estados = await _estadoCitaRepository.GetAllAsync();
 
                 return _mapper.Map<List<EstadoCitaDto>>(estados);
             }
@@ -36,7 +36,7 @@ namespace AS.AppointmentService.Application.Services
         {
             try
             {
-                var estado = _estadoCitaRepository.GetByIdAsync(id);
+                var estado = await _estadoCitaRepository.GetByIdAsync(id);
 
                 if (estado == null)
                     throw new TaskCanceledException("Estado de Cita no encontrado");

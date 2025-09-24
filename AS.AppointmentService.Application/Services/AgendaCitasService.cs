@@ -24,7 +24,7 @@ namespace AS.AppointmentService.Application.Services
             {
                 var nuevaAgendaCitas = await _agendaCitasRepository.AddAsync(_mapper.Map<AgendaCitas>(agendaCitasDto));
             
-                if(nuevaAgendaCitas.Id == 0)
+                if(nuevaAgendaCitas.Id == Guid.Empty)
                     throw new TaskCanceledException("No se pudo crear la agenda de citas");
 
                 return _mapper.Map<AgendaCitasDto>(nuevaAgendaCitas);
