@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace AgendaSaludApp.Application.Common
+namespace AS.AppointmentService.Application.Common
 {
     public static class ExceptionHelper
     {

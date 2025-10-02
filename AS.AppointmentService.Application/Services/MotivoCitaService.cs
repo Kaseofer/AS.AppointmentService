@@ -1,56 +1,38 @@
-﻿using AS.AppointmentService.Application.Dtos;
-using AS.AppointmentService.Application.Services.Intefaces;
+﻿using AS.AppointmentService.Application.Dtos.Appointment;
+using AS.AppointmentService.Application.Services.Interfaces;
 using AS.AppointmentService.Core.Entities;
 using AS.AppointmentService.Infrastructure.Persistence.Repositories.Interfaces;
 using AutoMapper;
 
 namespace AS.AppointmentService.Application.Services
 {
-    
-    public class MotivoCitaService : IMotivoCitaService
+    public class AppointmentReasonService : IAppointmentReasonService
     {
-        private readonly IGenericRepository<MotivoCita> _motivoRepository;
+        private readonly IGenericRepository<AppointmentReason> _reasonRepository;
         private readonly IMapper _mapper;
 
-        public MotivoCitaService(IGenericRepository<MotivoCita> motivoRepository, IMapper mapper)
+        public AppointmentReasonService(
+            IGenericRepository<AppointmentReason> reasonRepository,
+            IMapper mapper)
         {
-            _motivoRepository = motivoRepository;
+            _reasonRepository = reasonRepository;
             _mapper = mapper;
         }
 
-
-        public async Task<List<MotivoCitaDto>> GetAllAsync()
+        public async Task<AppointmentReasonResponseDto?> GetByIdAsync(int id)
         {
-            try
-            {
-                var motivos = await _motivoRepository.GetAllAsync();
-                return _mapper.Map<List<MotivoCitaDto>>(motivos);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            
+            var reason = await _reasonRepository.GetByIdAsync(id);
+
+            if (reason == null)
+                return null;
+
+            return _mapper.Map<AppointmentReasonResponseDto>(reason);
         }
 
-        public async Task<MotivoCitaDto?> GetByIdAsync(int id)
+        public async Task<List<AppointmentReasonResponseDto>> GetAllAsync()
         {
-            try
-            {
-                var motivo = await _motivoRepository.GetByIdAsync(id);
-
-                if (motivo == null)
-                    throw new TaskCanceledException("No se encontró el motivo");
-
-                return _mapper.Map<MotivoCitaDto>(motivo);
-            }
-            catch 
-            {
-
-                throw;
-            }
-            
+            var reasons = await _reasonRepository.GetAllAsync();
+            return _mapper.Map<List<AppointmentReasonResponseDto>>(reasons);
         }
-
     }
 }

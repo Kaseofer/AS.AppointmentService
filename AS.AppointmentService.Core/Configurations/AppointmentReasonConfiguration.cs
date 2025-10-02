@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AS.AppointmentService.Core.Configurations
 {
-    public class AppointmentReasonConfiguration : IEntityTypeConfiguration<AppointmentReason>
+    public class AppointmentStatusConfiguration : IEntityTypeConfiguration<AppointmentStatus>
     {
-        public void Configure(EntityTypeBuilder<AppointmentReason> builder)
+        public void Configure(EntityTypeBuilder<AppointmentStatus> builder)
         {
-            builder.ToTable("appointment_reason", "agendasalud");
+            builder.ToTable("appointment_status", "agendasalud");
 
             builder.HasKey(e => e.Id);
 
@@ -27,7 +27,7 @@ namespace AS.AppointmentService.Core.Configurations
             // Índice único en el nombre
             builder.HasIndex(e => e.Name)
                    .IsUnique()
-                   .HasDatabaseName("idx_appointment_reason_name");
+                   .HasDatabaseName("idx_appointment_status_name");
         }
     }
 }

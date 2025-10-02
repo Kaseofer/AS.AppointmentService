@@ -1,0 +1,39 @@
+﻿Flujo y relación entre tablas
+Relaciones:
+professional
+    ├── professional_schedule (1:N) - Horarios semanales regulares
+    ├── professional_non_working_days (1:N) - Excepciones (vacaciones, etc)
+    ├── slot_generation_config (1:1) - Configuración de generación
+    └── appointment_slots (1:N) - Slots generados
+            └── appointment (1:1 opcional) - Cita reservada
+Flujo de generación de slots:
+
+Job automático (cron diario a las 00:00):
+
+Lee slot_generation_config de profesionales con auto_generate_slots = true
+Genera slots para los próximos X días según advance_booking_days
+Respeta professional_schedule (horarios semanales)
+Excluye professional_non_working_days y national_holidays
+Inserta en appointment_slots con is_available = true
+
+
+Paciente reserva turno:
+
+Busca slots disponibles: WHERE is_available = true AND appointment_id IS NULL
+Crea registro en appointment
+Actualiza appointment_slots:
+
+is_available = false
+appointment_id = [nueva_cita]
+booked_at = NOW()
+
+
+
+
+Cancelación de turno:
+
+Elimina/marca como cancelado en appointment
+Actualiza appointment_slots:
+
+is_available = true
+appointment_id = NULL

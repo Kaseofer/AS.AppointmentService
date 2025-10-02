@@ -1,7 +1,7 @@
 ﻿using AS.AppointmentService.Application.Dtos;
 using AS.AppointmentService.Core.Entities;
 
-namespace AgendaSaludApp.Application.Common
+namespace AS.AppointmentService.Application.Common
 {
     public static class PascalCaseHelper
     {
