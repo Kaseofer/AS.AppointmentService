@@ -8,9 +8,10 @@
  * Los estados de cita son valores fijos del sistema
  */
 
-using AgendaSaludApp.Application.Common;
 using AS.AppointmentService.Api.Common;
+using AS.AppointmentService.Application.Common;
 using AS.AppointmentService.Application.Dtos.Appointment;
+using AS.AppointmentService.Application.Services.Interfaces;
 using AS.AppointmentService.Infrastructure.Logger;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

@@ -1,7 +1,4 @@
-﻿using AS.AppointmentService.Application.Dtos.AppointmentReason;
-using AS.AppointmentService.Application.Dtos.AppointmentStatus;
-
-namespace AS.AppointmentService.Application.Dtos.Appointment
+﻿namespace AS.AppointmentService.Application.Dtos.Appointment
 {
     public class AppointmentResponseDto
     {

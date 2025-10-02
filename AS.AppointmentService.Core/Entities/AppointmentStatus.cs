@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AS.AppointmentService.Core.Entities
 {
-    [Table("appointment_status", Schema = "agendasalud")]
+    [Table("appointment_status")]
     public class AppointmentStatus
     {
         [Key]

@@ -1,4 +1,5 @@
 ﻿using AS.AppointmentService.Application.Dtos.Appointment;
+using AS.AppointmentService.Application.Dtos.ProfessionalNonWorkingDay;
 using AS.AppointmentService.Core.Entities;
 using AutoMapper;
 
@@ -38,6 +39,24 @@ namespace AS.AppointmentService.Application.Mappers
 
             // ========== APPOINTMENT REASON ==========
             CreateMap<AppointmentReason, AppointmentReasonResponseDto>();
+
+            // Agregar a AutoMapperProfiles
+
+            // ========== PROFESSIONAL NON-WORKING DAYS ==========
+            CreateMap<CreateProfessionalNonWorkingDayDto, ProfessionalNonWorkingDay>()
+                .ForMember(dest => dest.Id, opt => opt.Ignore())
+                .ForMember(dest => dest.CreatedAt, opt => opt.Ignore())
+                .ForMember(dest => dest.CreatedBy, opt => opt.Ignore());
+    
+
+            CreateMap<UpdateProfessionalNonWorkingDayDto, ProfessionalNonWorkingDay>()
+                .ForMember(dest => dest.Id, opt => opt.Ignore())
+                .ForMember(dest => dest.ProfessionalId, opt => opt.Ignore())
+                .ForMember(dest => dest.CreatedAt, opt => opt.Ignore())
+                .ForMember(dest => dest.CreatedBy, opt => opt.Ignore())
+                .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
+
+            CreateMap<ProfessionalNonWorkingDay, ProfessionalNonWorkingDayResponseDto>();
         }
     }
 }
