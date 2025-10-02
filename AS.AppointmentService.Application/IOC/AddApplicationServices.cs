@@ -15,8 +15,7 @@ namespace AS.AppointmentService.Application.IOC
             services.AddScoped<IAppointmentReasonService, AppointmentReasonService>();
             services.AddScoped<IProfessionalNonWorkingDayService, ProfessionalNonWorkingDayService>();
             services.AddScoped<INationalHolidayService, NationalHolidayService>();
-           
-
+            services.AddScoped<ISlotGenerationConfigService, SlotGenerationConfigService>();
 
 
 

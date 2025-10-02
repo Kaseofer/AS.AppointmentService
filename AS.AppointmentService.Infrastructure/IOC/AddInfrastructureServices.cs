@@ -13,6 +13,7 @@ namespace AS.AppointmentService.Infrastructure.IOC
             // services.AddScoped<IYourRepository, YourRepositoryImplementation>();
             // Repositorios
 
+
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
 

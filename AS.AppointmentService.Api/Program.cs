@@ -1,7 +1,7 @@
+using AS.AppointmentService.API.IOC;
 using AS.AppointmentService.Application.IOC;
 using AS.AppointmentService.Application.Mappers;
 using AS.AppointmentService.Infrastructure.IOC;
-using AS.AppointmentService.Infrastructure.Logger;
 using AS.AppointmentService.Infrastructure.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using SharpGrip.FluentValidation.AutoValidation.Mvc.Extensions;
@@ -14,11 +14,7 @@ builder.Services.AddDbContext<AgendaSaludDBContext>(options =>
     .UseSnakeCaseNamingConvention());
 
 
-
-
-//Logger
-builder.Services.AddSingleton(typeof(IAppLogger<>), typeof(FileLogger<>));
-
+builder.Services.AddPresentationLayerService(builder.Configuration);
 builder.Services.AddInfrastructureLayer();
 builder.Services.AddApplicationLayer();
 
@@ -46,19 +42,16 @@ builder.Services.AddAutoMapper(cfg => { }, typeof(AutoMapperProfiles).Assembly);
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+// Habilitar Swagger solo si hay una variable de entorno específica
+var enableSwagger = Environment.GetEnvironmentVariable("ENABLE_SWAGGER") == "true"
+                    || app.Environment.IsDevelopment();
+
+if (enableSwagger)
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-
-// Para Railway - usar puerto dinámico/*
-/*var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
-app.Urls.Clear();
-app.Urls.Add($"http://0.0.0.0:{port}");
-*/
 
 app.UseCors("AllowAllOrigins");
 

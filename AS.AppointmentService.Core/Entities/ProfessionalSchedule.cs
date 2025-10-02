@@ -30,6 +30,6 @@ namespace AS.AppointmentService.Core.Entities
         [Required]
         [Column("appointment_duration_mins")]
         public int AppointmentDurationMins { get; set; }
-
+        public bool Active { get; set; }
     }
 }

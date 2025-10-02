@@ -1,5 +1,6 @@
 ﻿using AS.AppointmentService.Application.Dtos.Appointment;
 using AS.AppointmentService.Application.Dtos.ProfessionalNonWorkingDay;
+using AS.AppointmentService.Application.Dtos.SlotGenerationConfig;
 using AS.AppointmentService.Core.Entities;
 using AutoMapper;
 
@@ -57,6 +58,21 @@ namespace AS.AppointmentService.Application.Mappers
                 .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
 
             CreateMap<ProfessionalNonWorkingDay, ProfessionalNonWorkingDayResponseDto>();
+
+            // ========== SLOT GENERATION CONFIG ==========
+            CreateMap<CreateSlotGenerationConfigDto, SlotGenerationConfig>()
+                .ForMember(dest => dest.Id, opt => opt.Ignore())
+                .ForMember(dest => dest.CreatedAt, opt => opt.Ignore())
+                .ForMember(dest => dest.UpdatedAt, opt => opt.Ignore());
+
+            CreateMap<UpdateSlotGenerationConfigDto, SlotGenerationConfig>()
+                .ForMember(dest => dest.Id, opt => opt.Ignore())
+                .ForMember(dest => dest.ProfessionalId, opt => opt.Ignore())
+                .ForMember(dest => dest.CreatedAt, opt => opt.Ignore())
+                .ForMember(dest => dest.UpdatedAt, opt => opt.Ignore())
+                .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
+
+            CreateMap<SlotGenerationConfig, SlotGenerationConfigResponseDto>();
         }
     }
 }
