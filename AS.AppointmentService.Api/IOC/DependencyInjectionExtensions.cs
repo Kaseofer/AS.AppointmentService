@@ -61,7 +61,6 @@ namespace AS.AppointmentService.API.IOC
             services.AddSingleton(typeof(IAppLogger<>), typeof(FileLogger<>));
 
             Console.WriteLine("Adding authentication...");
-            Console.WriteLine("Adding authentication...");
 
             Console.WriteLine("Adding JWT authentication...");
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -154,22 +153,22 @@ namespace AS.AppointmentService.API.IOC
                 });
 
                 c.AddSecurityRequirement(new OpenApiSecurityRequirement()
-    {
-        {
-            new OpenApiSecurityScheme
-            {
-                Reference = new OpenApiReference
                 {
-                    Type = ReferenceType.SecurityScheme,
-                    Id = "Bearer"
-                },
-                Scheme = "oauth2",
-                Name = "Bearer",
-                In = ParameterLocation.Header,
-            },
-            new List<string>()
-        }
-    });
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            },
+                            Scheme = "oauth2",
+                            Name = "Bearer",
+                            In = ParameterLocation.Header,
+                        },
+                        new List<string>() 
+                    }
+                });
             });
 
             // NO agregues políticas que requieran autenticación por defecto

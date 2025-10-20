@@ -9,3 +9,8 @@
 **/.DS_Store
 **/node_modules/
 AgendaSaludApp.DB/
+# DOCUMENTACIÓN - NO COPIAR
+AS.AppointmentService.Docs/
+**/Docs/
+*.md
+README.md
