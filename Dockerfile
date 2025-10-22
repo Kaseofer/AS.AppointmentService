@@ -12,7 +12,7 @@ COPY ["AS.AppointmentService.Core/*.csproj", "AS.AppointmentService.Core/"]
 COPY ["AS.AppointmentService.Infrastructure/*.csproj", "AS.AppointmentService.Infrastructure/"]
 
 # Restore
-RUN dotnet restore "AS.AppointmentService.Api/AS.AppointmentService.Api.csproj"
+RUN dotnet restore "AS.AppointmentService.Api/AS.AppointmentService.Api.csproj" --disable-parallel --no-cache
 
 # Copia todo el código
 COPY . .

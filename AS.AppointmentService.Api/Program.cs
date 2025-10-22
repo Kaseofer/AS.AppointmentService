@@ -10,7 +10,7 @@ using SharpGrip.FluentValidation.AutoValidation.Mvc.Extensions;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<AgendaSaludDBContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("AgendaSalud_Appointments_Db"))
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))
     .UseSnakeCaseNamingConvention());
 
 
