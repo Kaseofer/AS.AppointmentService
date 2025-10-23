@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36414.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AS.AppointmentService.Api", "AS.AppointmentService.Api\AS.AppointmentService.Api.csproj", "{34117FA6-5F1B-45BC-9952-86DB6EAEE75D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{34117FA6-5F1B-45BC-9952-86DB6EAEE75D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AS.AppointmentService.Infrastructure", "AS.AppointmentService.Infrastructure\AS.AppointmentService.Infrastructure.csproj", "{B3DA4C52-78BA-4CBE-9D28-FEC71F7B74D6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{B3DA4C52-78BA-4CBE-9D28-FEC71F7B74D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AS.AppointmentService.Core", "AS.AppointmentService.Core\AS.AppointmentService.Core.csproj", "{D4829146-2F79-4215-A73E-E7E1554BDAE0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{D4829146-2F79-4215-A73E-E7E1554BDAE0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AS.AppointmentService.Application", "AS.AppointmentService.Application\AS.AppointmentService.Application.csproj", "{18847485-0592-4021-9438-6558A7D4597E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{18847485-0592-4021-9438-6558A7D4597E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución", "Elementos de la solución", "{D107F4C8-89CC-BEA8-D3D7-CA6B7733353D}"
 	ProjectSection(SolutionItems) = preProject
@@ -38,10 +38,6 @@ Global
 		{18847485-0592-4021-9438-6558A7D4597E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18847485-0592-4021-9438-6558A7D4597E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18847485-0592-4021-9438-6558A7D4597E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1DCC5CD6-0F9F-4BE4-B13E-0C1B1F4562F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1DCC5CD6-0F9F-4BE4-B13E-0C1B1F4562F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1DCC5CD6-0F9F-4BE4-B13E-0C1B1F4562F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1DCC5CD6-0F9F-4BE4-B13E-0C1B1F4562F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

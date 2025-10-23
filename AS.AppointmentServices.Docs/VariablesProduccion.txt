@@ -1,6 +1,0 @@
-//Variables de entorno para producción
-ConnectionStrings__AgendaSalud_Appointments_Db
-Jwt__Key
-Jwt__Issuer
-Jwt__Audience
-Jwt__ExpireMinutes
